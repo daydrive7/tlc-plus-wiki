@@ -1,0 +1,118 @@
+site_name: Track Layout Creator + Guide
+site_description: >-
+  The complete guide for Track Layout Creator + (TLC+) — a desktop track layout
+  editor for designing, generating and exporting race track layouts as .TED
+  files for Gran Turismo 6.
+site_url: https://daydrive7.github.io/tlc-plus-wiki/
+repo_name: daydrive7/track-layout-creator-plus
+repo_url: https://github.com/daydrive7/track-layout-creator-plus
+
+copyright: Copyright &copy; 2026 Track Layout Creator + contributors
+
+theme:
+  name: material
+  favicon: img/favicon.png
+  icon:
+    logo: material/clipboard-edit-outline
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    # Light mode (follows system preference, toggleable)
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.path
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/translate.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: getting-started/installation.md
+      - Your First Track: getting-started/first-track.md
+  - Interface Guide:
+      - Window Overview: interface/overview.md
+      - Toolbar & Canvas Tools: interface/toolbar.md
+      - Geometry Tab: interface/geometry-tab.md
+      - Map & Toggles Tab: interface/map-toggles-tab.md
+      - Generators Tab: interface/generators-tab.md
+      - Preferences: interface/preferences.md
+  - Core Concepts:
+      - Track Geometry: concepts/track-geometry.md
+      - Elevation & Terrain: concepts/elevation-terrain.md
+      - Themes & Road Types: concepts/themes-road-types.md
+  - Files & Data:
+      - Saving & Loading: files/saving-loading.md
+      - Importing: files/importing.md
+      - Exporting: files/exporting.md
+  - Generators:
+      - Procedural Builder: generators/procedural.md
+      - Image Vectorizer: generators/image-vectorizer.md
+  - Tips & Techniques: tips.md
+  - FAQ: faq.md
