@@ -2,6 +2,8 @@
 
 Open **Preferences** to change the interface and visible modules. Road width, camber and elevation controls live on the **Geometry** tab instead.
 
+![The v1.3.0 Sidebar Module Manager and preferences](../assets/screenshots/07-preferences.png){ .tlc-shot }
+
 ## Appearance and workspace
 
 - **Light Mode (W.I.P) — classic TLC look** switches between Dark and Classic. Classic is an experimental light theme; some widgets may still look inconsistent.
@@ -22,6 +24,8 @@ When a newer release is found, the app offers to open its page in a browser. The
 **File → Language** offers English, Polish, Spanish, Portuguese (Brazil/Portugal), French, German, Japanese and Russian. Restart when prompted. Coverage of newly added strings can vary by language.
 
 This guide maintains English content. Its **Translate** button opens the current public page through Google Translate, a third-party service. Machine translation is optional and is not a reviewed guide localization. It cannot translate a local preview URL.
+
+![The v1.3.0 interface language menu](../assets/screenshots/12-language-menu.png){ .tlc-shot }
 
 ## Experimental Rally Circuit option
 

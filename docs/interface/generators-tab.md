@@ -2,6 +2,8 @@
 
 The **Generators** tab contains three independent modules. Preferences can hide each module, or the whole tab when none are enabled.
 
+![The v1.3.0 Generators tab with Track Tracer enabled](../assets/screenshots/04-sidebar-generators.png){ .tlc-shot }
+
 | Module | Result | Read more |
 | --- | --- | --- |
 | Procedural Track Builder | A new editable layout from a preset | [Procedural builder](../generators/procedural.md) |

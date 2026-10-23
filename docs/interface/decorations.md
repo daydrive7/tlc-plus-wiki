@@ -2,6 +2,8 @@
 
 Desktop v1.3.0 adds trackside decorations and writes supported items into TED exports. The available models depend on the active scenery. Choose your scenery before placing items.
 
+![Desktop v1.3.0 decoration palette, placement controls and populated circuit](../assets/screenshots/18-decorations.png){ .tlc-shot }
+
 ## Place and edit an item
 
 1. Generate or draw a road.

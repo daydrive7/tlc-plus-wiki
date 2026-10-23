@@ -20,7 +20,7 @@ Use the local URL printed by MkDocs, including `/tlc-plus-wiki/`. Built HTML is 
 
 See [REVIEW.md](REVIEW.md) for scope, evidence, remaining manual checks and the launch procedure. This overhaul targets v1.3.0 only. Do not describe development builds or TLC+ Web as this desktop release.
 
-The source is English. Optional Google Translate links are unreviewed machine translation and make no request until followed. System fonts keep the guide independent of a font CDN. Earlier app screenshots are labeled v1.2.0; the added v1.3.0 controls are described in text.
+The source is English. Optional Google Translate links are unreviewed machine translation and make no request until followed. System fonts keep the guide independent of a font CDN. All 20 application screenshots are fresh desktop v1.3.0 captures. [Screenshot provenance](SCREENSHOTS.md) records the capture accommodations and image processing.
 
 ## CI and Pages
 

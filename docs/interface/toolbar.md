@@ -1,8 +1,5 @@
 # Toolbar & Canvas Tools
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 The toolbar floating at the top-left of the canvas is your right hand while editing. Selection, Pen, Camber, Pan and Decoration are persistent editing modes; other buttons perform actions or transforms. The active tool changes the meaning of clicks and drags. This page explains every tool and gesture, then lists the complete keyboard map.
 
 ![The toolbar in the upper-left corner of the canvas](../assets/screenshots/01-main-blank.png){ class="tlc-shot" }
@@ -75,6 +72,8 @@ These three live at the bottom of the **Geometry** tab under OTHER TOOLS, but th
 ## Complete keyboard & mouse reference
 
 This is the same reference card available in-app via **Help → Controls**. Bindings marked "any tool" work no matter which radio tool is active.
+
+![The built-in v1.3.0 Controls reference](../assets/screenshots/08-controls.png){ .tlc-shot }
 
 ### Mouse
 

@@ -8,7 +8,7 @@ Choose **Eifel Flat** from the scenery menu for an easy first project. Open **Ge
 
 ![A generated Grand Prix circuit](../assets/screenshots/02-main-gp.png){ .tlc-shot }
 
-*v1.2.0 screenshot; the basic layout workflow also applies to v1.3.0.*
+*Desktop v1.3.0: a generated Grand Prix circuit with a sample manual-height edit.*
 
 Leave **Circuit** enabled on the Geometry tab for a closed loop. For a Rally Stage, disable Circuit before generating.
 
@@ -17,6 +17,8 @@ Leave **Circuit** enabled on the Geometry tab for a closed loop. For a Rally Sta
 Choose **Selection**, click a control node and drag it. Zoom with the wheel; right-drag empty canvas to pan; press ++c++ to centre the track. Right-dragging a node can change its radius, so start panning away from nodes.
 
 Double-click a node, or select it and press ++enter++, to enter precise coordinates, radius, height and camber. Use ++ctrl+z++ to undo a geometry edit. [All tools and controls →](../interface/toolbar.md)
+
+![The v1.3.0 Edit Point precision dialog](../assets/screenshots/05-edit-point.png){ .tlc-shot }
 
 ## 3. Check road width, start and elevation
 

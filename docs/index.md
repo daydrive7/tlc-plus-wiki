@@ -16,9 +16,9 @@ Design a circuit, trace a real route, shape the elevation and add trackside scen
 **New in 1.3.0** · [Decorations](interface/decorations.md), [editable GPS tracing](generators/gps-tracing.md), camera tilt and Classic light mode. [See what changed →](releases.md)
 </div>
 
-![A Grand Prix layout in the TLC+ desktop editor](assets/screenshots/02-main-gp.png){ .tlc-shot }
+![The v1.3.0 Decorations palette and a circuit on Eifel terrain](assets/screenshots/18-decorations.png){ .tlc-shot }
 
-*Earlier v1.2.0 interface shown. The v1.3.0 editor adds Decorations and Track Tracer controls.*
+*Desktop v1.3.0: the Decorations palette beside a sample circuit on Eifel terrain.*
 
 ## What would you like to do?
 

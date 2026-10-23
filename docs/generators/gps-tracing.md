@@ -2,6 +2,8 @@
 
 **Track Tracer → Trace GPX/CSV** turns a GPS path into editable road nodes in v1.3.0. It is separate from the **External Path Imports** buttons, which draw a reference overlay without rebuilding the road.
 
+![Track Tracer image modes, GPX/CSV accuracy and separate trace actions](../assets/screenshots/19-gps-tracing.png){ .tlc-shot }
+
 ## Trace a route
 
 1. Save your current geometry and export decorations first.

@@ -1,18 +1,15 @@
 # Window Overview
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 TLC+ uses a single maximized window with a custom dark title bar. Everything you need is visible at once — no hidden palettes, no floating dialogs except when deliberately opened. This page names each region of the window so the rest of the guide can refer to them precisely.
 
-![Annotated view of the main window with a Grand Prix track](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
+![The v1.3.0 main window with Eifel terrain and elevation](../assets/screenshots/20-terrain-overview.png){ class="tlc-shot" }
 
 ## Title bar
 
 The slim bar along the top edge replaces the native window frame. From left to right you will find:
 
 - **TRACK LAYOUT CREATOR +** — the app name; its visibility can be changed in Preferences.
-- **File / Edit / Theme / Help** — dropdown menus (details below).
+- **File / Edit / Scenery / Help** — dropdown menus (details below).
 - **Check for Updates** — opens the release page after confirming internet use.
 - **— / ▢ / ✕** — minimize, maximize (double-clicking the bar also toggles it) and close. Closing via ✕ saves your preferences; the File → Quit entry does not.
 
@@ -27,10 +24,10 @@ Because the window is frameless, you move it by dragging the empty area of the t
 |---|---|
 | **File** | Load track, Save track, Import/Export polygon, Import TED, Export to TED, Export to PostScript, Draw isometric view, Preferences, Language, Quit |
 | **Edit** | Undo, Redo |
-| **Theme** | Death Valley, Eifel, Andalusia, Eifel Flat |
+| **Scenery** | Death Valley, Eifel, Andalusia, Eifel Flat |
 | **Help** | Guide (opens this wiki), Controls (in-app reference card), Credits |
 
-![The Theme menu with all four heightmap themes](../assets/screenshots/11-theme-menu.png){ class="tlc-shot" }
+![The Scenery menu with all four heightmap themes](../assets/screenshots/11-theme-menu.png){ class="tlc-shot" }
 
 ## Toolbar
 
@@ -58,13 +55,14 @@ Additionally, a corner's label gains an exclamation mark when its sweep angle is
 
 ## Sidebar
 
-The panel on the left (300 px wide on large screens, auto-narrowed on smaller ones; resizable by dragging the divider, collapsible via the arrow in its header) organises all track settings into three tabs:
+The panel on the left (300 px wide on large screens, auto-narrowed on smaller ones; resizable by dragging the divider, collapsible via the arrow in its header) organises all track settings into four tabs:
 
 - **Geometry** — road dimensions, corner camber, track scaling & flags, start/pit line logic, road modes, manual height controls and the rotate/scale/randomize tools.
 - **Map & Toggles** — elevation map details (fidelity, scroll margin, label size) and eleven display toggles.
-- **Generators** — the procedural track builder, the image vectorizer and external path imports.
+- **Generators** — the procedural track builder, Track Tracer (images and GPX/CSV) and external path imports.
+- **Decorations** — scenery-specific palette, placement side, fill interval and selected-item controls.
 
-Each tab is documented on its own page: [Geometry Tab](geometry-tab.md), [Map & Toggles Tab](map-toggles-tab.md) and [Generators Tab](generators-tab.md). Which generator sections appear at all is controlled from [Preferences](preferences.md).
+Each tab is documented on its own page: [Geometry Tab](geometry-tab.md), [Map & Toggles Tab](map-toggles-tab.md) and [Generators Tab](generators-tab.md), plus [Decorations](decorations.md). Which generator sections appear at all is controlled from [Preferences](preferences.md).
 
 ## Elevation graph
 

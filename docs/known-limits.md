@@ -14,6 +14,6 @@ These limits affect how you save and validate a track. They are documented here 
 | Language | New strings may be incomplete; guide machine translation is unreviewed | Refer back to English tool names |
 | Game use | Export does not transfer a course or restore online services | Validate with your own compatible GT6 workflow |
 
-Older screenshots in this guide are explicitly labeled **v1.2.0**. They illustrate the shared editing workflow and do not show the new v1.3.0 controls. No desktop v1.4.0 features are documented here.
+Guide screenshots were captured from desktop **v1.3.0** on **23 October 2026**. Generator examples show editing states, including warning markers that need review before export. The illustrations are not evidence of in-game validation.
 
 [Saving](files/saving-loading.md) · [Decorations](interface/decorations.md) · [Troubleshooting](troubleshooting.md)

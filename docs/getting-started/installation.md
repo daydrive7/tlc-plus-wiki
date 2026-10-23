@@ -79,6 +79,8 @@ Run these commands **inside the extracted application folder**.
 
 ## Confirm a successful launch
 
+![Desktop v1.3.0 immediately after launch](../assets/screenshots/01-main-blank.png){ .tlc-shot }
+
 The editor should show a canvas, toolbar, sidebar and track status. Open **Generators → Grand Prix (Fast & Flowing)** and check that a layout appears. Some modules and the elevation graph can be hidden in Preferences; their absence alone does not mean installation failed.
 
 Editing works offline after dependencies are installed. Startup update reminders contact GitHub when enabled. Help → Guide opens the online wiki; optional translation also requires internet access.

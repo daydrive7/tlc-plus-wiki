@@ -1,8 +1,5 @@
 # Elevation & Terrain
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 TLC+ models elevation in three layers: a **real terrain heightmap** that follows the theme, **manual height nodes** that you sculpt, and **camber banking** that tilts the road across its width. The elevation graph at the bottom of the window is where all three become visible — and editable — at once.
 
 ![The elevation profile graph with a distance cursor planted](../assets/screenshots/06-elevation-cursor.png){ class="tlc-shot" }

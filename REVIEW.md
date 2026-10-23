@@ -6,7 +6,7 @@ Prepared 23 October 2026. **Candidate for owner validation; not a launch approva
 
 - Rebuilt the home/start flow, installation, first-track tutorial, save/export guidance, preferences, FAQ and troubleshooting.
 - Added decoration editing, editable GPX/CSV tracing, release overview and known limits.
-- Kept existing detailed geometry/elevation/generator references, correcting affected v1.3.0 statements and labeling older screenshots.
+- Kept existing detailed geometry/elevation/generator references, correcting affected v1.3.0 statements and replacing all 17 older screenshots; added three focused v1.3.0 views.
 - Fixed translation URL generation, keyboard dismissal/focus, local-preview behavior and the guide-source edit link.
 - Added pull-request checks and review artifacts; retained the exact URL used by the desktop app.
 - No v1.4.0 or TLC+ Web features.
@@ -33,7 +33,7 @@ The failed deployment at <https://github.com/daydrive7/tlc-plus-wiki/actions/run
 - [ ] Save/reopen a TRK5 copy and verify the documented omissions and elevation controls.
 - [ ] Try the main screenshot and isometric export; check the actual formats and output paths.
 - [ ] Review desktop/mobile readability, light/dark mode, search, navigation and keyboard access.
-- [ ] Approve the use of labeled v1.2.0 screenshots, or replace them with verified v1.3.0 captures.
+- [ ] Review the 20 fresh v1.3.0 screenshots and captions; see SCREENSHOTS.md for provenance.
 - [ ] Validate exported TEDs with your supported GT6 workflow. No in-game test is claimed here.
 
 ## Launch only after acceptance
@@ -55,4 +55,8 @@ The content candidate alone does not restore the live site. Pages enablement, a 
 - Executed the released `SaveTrack` function in an isolated harness: node Z persists; changing decoration/session-control state does not change its output.
 - Executed the released GPS tracing service with synthetic closed/open routes and parsed the supplied GPX/CSV examples; circuit/stage detection matched the guide.
 
-Fresh desktop GUI walkthroughs, mobile viewport testing, macOS/Linux installs, real-world data edge cases and in-game TED validation remain owner acceptance checks. The native automation helper did not expose the released app's blank-title borderless window, so no new desktop screenshots or GUI success are claimed.
+Full desktop workflow acceptance, mobile viewport testing, macOS/Linux installs, real-world data edge cases and in-game TED validation remain owner acceptance checks. A temporary capture copy now exposes that window through an added native frame/title; 20 real screenshots were captured. The editor, generators, manual-height edit, decoration fill, isometric view and help dialogs were exercised. Full save/export round trips and GUI GPS import remain pending; see SCREENSHOTS.md.
+
+## Screenshot refresh
+
+All 20 screenshot assets now show desktop v1.3.0, including the new Decorations palette, Track Tracer controls and Eifel terrain. The earlier v1.2.0 screenshot notices have been removed. The capture helper required temporary window-manager accommodations only; no app feature implementation was changed.

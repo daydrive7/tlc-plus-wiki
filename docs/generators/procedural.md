@@ -1,9 +1,8 @@
 # Procedural Builder
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 The Procedural Track Builder creates complete layouts from mathematical recipes — one button per archetype, a fresh roll of the dice every click. Generation is instant and entirely local: nodes are placed by geometric rules, radii assigned from each archetype's profile, the view recentres, and an undo snapshot means ++ctrl+z++ puts your previous track back exactly as it was.
+
+The screenshots below show generated starting points, not validated finished tracks. Red/orange geometry markers still need inspection and cleanup before export.
 
 All five generators share the same contract: every node is created with zero height, *global* camber and circular curve mode (segments = 1), circuit mode is set appropriately for the style, and the result is a fully editable polygon — nothing about a generated track is locked or special.
 
@@ -13,19 +12,23 @@ All five generators share the same contract: every node is created with zero hei
 
 **12–18 nodes across a 600 × 400 m envelope, corner radii 40–140 m scaled by distance from centre, irregularity 0.6, plus ±50 m of position noise.** The recipe aims for the classic GP rhythm: long straights into wide, fast corners, with radius scaled up toward the layout's edges (where speeds are higher) and tightened near the centre. This is the archetype to click when you want a believable "somewhere in Europe" circuit that needs polish rather than surgery.
 
-![A generated Grand Prix circuit](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
+![A generated Grand Prix circuit after a sample manual-height edit](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
 
 ### Technical / Karting (Twisty)
+
+![A technical generator example before cleanup](../assets/screenshots/16-tech.png){ .tlc-shot }
 
 **18–26 nodes packed into 300 × 300 m, radii 20–60 m, irregularity 0.3.** Constant direction changes with tight radii — think karting tracks and street circuits. The low irregularity keeps the layout coherent while the sheer node density delivers the twist. Pairs naturally with **Narrow road** mode and a 6–8 m road width on the Geometry tab.
 
 ### Oval / Speedway (4-Turn)
 
+![A four-corner oval in desktop v1.3.0](../assets/screenshots/14-oval.png){ .tlc-shot }
+
 **Exactly 4 nodes on a 700 × 300 m stretched shape, radii 100–200 m, start angle rotated 45°, zero noise.** The only archetype with a fixed node count — a true speedway: two long straights, two wide turns. Everything is deterministic in shape but the radii still vary within their range, so ovals range from paperclip-parallel to D-shaped.
 
 ### Rally Stage (Point-to-Point)
 
-**38–55 nodes on a north–south run from y = −1100 m to +1100 m, the x coordinate performing a random walk of ±250 m per step clamped to ±1000 m, radii uniform 35–90 m.** The result is a 2.2 km point-to-point stage of linked sweepers — and the only archetype that is *not* a circuit. Two rules protect its integrity:
+**38–55 nodes on a north–south run from y = −1100 m to +1100 m, the x coordinate performing a random walk of ±250 m per step clamped to ±1000 m, radii uniform 35–90 m.** The result spans 2.2 km north–south; driven road length depends on the bends. It is a point-to-point stage of linked sweepers — and the only archetype that is *not* a circuit. Two rules protect its integrity:
 
 1. Generating a rally stage while **Circuit** is checked is blocked with an explanatory dialog — unless the experimental override in [Preferences](../interface/preferences.md) is enabled (the result is then slightly broken, at your own risk).
 2. On success, circuit mode is switched **off** automatically.

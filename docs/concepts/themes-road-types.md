@@ -1,18 +1,17 @@
 # Themes & Road Types
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 A **theme** in TLC+ is more than a colour scheme: it selects the real-world terrain heightmap, the contour rendering, *and* an entire table of GT6 road building blocks — start zones, sprint blocks, mid-track straights (normal and narrow), and the line types used for start and finish lines. Choosing a theme is therefore the very first decision of any project, because it determines what the exported TED physically drives on.
 
 ## The four themes
 
 | Theme | Terrain | Character |
 |---|---|---|
-| ![Death Valley](../assets/screenshots/11-theme-menu.png){: style="width:220px;border-radius:4px"} **Death Valley** | 6 000 × 6 000 m, ±204 m | Desert basin-and-range; wide open spaces with sudden ridges. |
+| **Death Valley** | 6 000 × 6 000 m, ±204 m | Desert basin-and-range; wide open spaces with sudden ridges. |
 | **Eifel** | 12 000 × 12 000 m, ±295 m | Rolling German hills — the classic all-rounder. |
 | **Andalusia** | 7 000 × 7 000 m, ±646 m | Rugged Spanish mountains; the most extreme elevation. |
 | **Eifel Flat** *(default)* | 12 000 × 12 000 m, ±166 m | Gentle Eifel relief — forgiving for first tracks. |
+
+![The v1.3.0 Scenery menu](../assets/screenshots/11-theme-menu.png){ .tlc-shot }
 
 Switch terrain from the **Scenery** menu in the title bar. Confirming a different scenery clears placed decorations; the polygon stays but the terrain beneath it changes, so always re-check the elevation profile after switching. Eifel Flat internally reuses Eifel's road data with a flattened heightmap — the two are siblings, not separate families.
 

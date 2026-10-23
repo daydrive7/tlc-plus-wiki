@@ -21,3 +21,7 @@ This guide targets **v1.3.0**, published on **4 September 2026**. It does not co
 The release archive's `run.bat` requires an existing Python installation. Native TRK5 saves do not preserve decorations or every session control. The main-canvas screenshot normally saves PNG despite the File menu's PostScript label. The Number of sectors slider is absent; the legacy save field does not control checkpoint generation.
 
 Keep these corrections in mind when using older screenshots or community instructions. [Known limits →](known-limits.md)
+
+## Project attribution
+
+![The desktop v1.3.0 Credits dialog](assets/screenshots/09-credits.png){ .tlc-shot }

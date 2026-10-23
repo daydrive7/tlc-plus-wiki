@@ -1,8 +1,5 @@
 # Geometry Tab
 
-!!! note "Screenshot version"
-    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
-
 The **Geometry** tab is the control room of your track: every property that shapes the road, its racing lines and its start/pit logic lives here. The tab is organised into six sections, described below exactly in the order they appear. All sliders apply live — drag one and watch the canvas update.
 
 ![The Geometry tab with its six sections](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
