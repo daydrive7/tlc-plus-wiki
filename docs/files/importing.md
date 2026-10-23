@@ -1,10 +1,12 @@
 # Importing
 
-TLC+ can pull geometry from four external sources, each answering a different need: reverse-engineering an existing TED, tracing real-world GPS data, reading raw point lists, and overlaying reference paths to draw over. All imports take an undo snapshot first — ++ctrl+z++ always undoes an import that replaced your polygon.
+TLC+ can pull geometry from four external sources, each answering a different need: reverse-engineering an existing TED, tracing real-world GPS data, reading raw point lists, and overlaying reference paths to draw over. Save your current geometry and export decorations before replacing a road. Reference imports and native project loading do not have identical undo behavior.
 
 ## Import TED (editable) — File → Import TED
 
 Reverse-engineers a `.ted` file back into an **editable polygon**. The importer walks the TED's control points, reconstructs corner apex nodes from tangent intersections, and recovers each corner's radius from the CP centres. Straight-only control points are skipped, which keeps the recovered polygon clean.
+
+In v1.3.0, supported decoration records are also read back. This does not make the import a complete project restore.
 
 What comes back:
 
@@ -52,11 +54,15 @@ x,y,z,radius,camber,segments,width
 ...
 ```
 
-Unlike every other import, this **replaces your polygon** with fully-specified editable nodes — it is the lossless counterpart of **File → Export polygon**, ideal for generating geometry in your own scripts (a spreadsheet, a Python notebook, a generative tool) and finishing it in TLC+. The `width` column is a per-node width hint recorded by the exporter (−1 when unused); the editor itself uses the global road width. The default folder is `polygons/`.
+This **replaces your polygon** with fully-specified editable nodes — it is the lossless counterpart of **File → Export polygon**, ideal for generating geometry in your own scripts (a spreadsheet, a Python notebook, a generative tool) and finishing it in TLC+. The `width` column is a per-node width hint recorded by the exporter (−1 when unused); the editor itself uses the global road width. The default folder is `polygons/`.
 
 ## Reference path workflow tips
 
 - **Scale before you trace.** Adjust *Reference Path Scale* until a reference straight matches your intended real-world length — checking one known straight is faster than eyeballing the whole loop.
 - **Toggle freely.** The overlay never participates in exports; hide it whenever it visually collides with your polygon.
 - **Clear when done.** The dark-red **Clear Reference Path** button removes the overlay (and its memory cost) entirely.
-- **One at a time.** Importing a new reference replaces the previous one — layering multiple references is not supported in v1.2.0.
+- **One at a time.** Importing a new reference replaces the previous one — layering multiple references is not supported in v1.3.0.
+
+## Editable GPS tracing in v1.3.0
+
+For editable GPS geometry, use **Track Tracer → Trace GPX/CSV**, not the reference import buttons above. Set accuracy from 50–100%, then inspect the generated circuit/stage and elevation. [GPS tracing walkthrough](../generators/gps-tracing.md).

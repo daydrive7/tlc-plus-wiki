@@ -1,0 +1,282 @@
+[
+  {
+    "file": "01-main-blank.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "5a3a0853be75044c32cbe7860e91321f92c47dff8aa294bd6381b464ed296b0b"
+  },
+  {
+    "file": "02-main-gp.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "1213cec5583f922e14b8bb7cbf0d9cba7c2758a1232394f0ce56844a38f21f3d"
+  },
+  {
+    "file": "03-sidebar-map-toggles.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "134cdf653986b7837c6025212810ce34cfab47a8c8f413f6151023bc065b1631"
+  },
+  {
+    "file": "04-sidebar-generators.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "3744080bcd51c73525b598cbafeceedbe95c958ede4ce0f450592a71daf5da0e"
+  },
+  {
+    "file": "05-edit-point.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 221,
+    "height": 232,
+    "raw_crop": [
+      1,
+      31,
+      222,
+      263
+    ],
+    "sha256": "e3427d5f5a3029b50920e348635bca632db958eede1cec21be28bada5aa55c8a"
+  },
+  {
+    "file": "06-elevation-cursor.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "20dd9f49a4dbc62c8a6dc8c6a99b7824f76c132559fb97bfd88da7212a958f42"
+  },
+  {
+    "file": "07-preferences.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 401,
+    "height": 541,
+    "raw_crop": [
+      187,
+      237,
+      588,
+      778
+    ],
+    "sha256": "d91e5d4468e353fbb0521d67f09132883d38b47be824d128c84dfd7873b1a023"
+  },
+  {
+    "file": "08-controls.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 400,
+    "height": 500,
+    "raw_crop": [
+      1,
+      31,
+      401,
+      531
+    ],
+    "sha256": "f0639c7468439dc13830efc327ffab1e064207a48c1bb1fef228f7c3b14708c6"
+  },
+  {
+    "file": "09-credits.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 500,
+    "height": 380,
+    "raw_crop": [
+      1,
+      31,
+      501,
+      411
+    ],
+    "sha256": "75d3a7ffc26248ebe1281c3618d094afaa5e35b852e3d133e03665617d78270a"
+  },
+  {
+    "file": "10-isometric.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 803,
+    "height": 603,
+    "raw_crop": [
+      240,
+      291,
+      1043,
+      894
+    ],
+    "sha256": "3cfb62128e4fe9517ed24818e943d18f3d8f77698a346e1b265549292e0fb912"
+  },
+  {
+    "file": "11-theme-menu.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 360,
+    "height": 169,
+    "raw_crop": [
+      0,
+      31,
+      360,
+      200
+    ],
+    "sha256": "ff8382d80e87f619d9df1107ceffa09154e12d4d06d3d72ba32e3f2b77c28579"
+  },
+  {
+    "file": "12-language-menu.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 350,
+    "height": 427,
+    "raw_crop": [
+      0,
+      31,
+      350,
+      458
+    ],
+    "sha256": "e6b429d1e780fa4f92c8d5110168d9e73fd0d9433954c10e57e0fd87d2710b55"
+  },
+  {
+    "file": "13-rally.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "d411718089f4c79eec5823e735442470569e1a186f8930d56b1d001ec48db2bd"
+  },
+  {
+    "file": "14-oval.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "f09907a8fe7757c34aea76c9c00cde76379f9bc7792ada011c903f10405bf6ed"
+  },
+  {
+    "file": "15-chaos.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "13e4485784b24975f53519fb62eb2466eb481f875465b004c11cd31aa8898c8d"
+  },
+  {
+    "file": "16-tech.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "c8fc9187ce214a26c42a5f3539eff701702fb636c06bdbb051e7b8f9b42a2987"
+  },
+  {
+    "file": "17-grid-view.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "87c6715064b81bb2ba1233873ab9a7ff63c023b7e66028ab173d31c7fab7751e"
+  },
+  {
+    "file": "18-decorations.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "d46d579c845ed1c635a56151d03aa1d4111b8e9fd9ac1cb51ff7eb5e79fd7f47"
+  },
+  {
+    "file": "19-gps-tracing.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 330,
+    "height": 262,
+    "raw_crop": [
+      7,
+      385,
+      337,
+      647
+    ],
+    "sha256": "c5c18261b97a4e0f5eed9c3244b04a7f2fcf0d13c54bafb1e0ce9520171ae2cb"
+  },
+  {
+    "file": "20-terrain-overview.png",
+    "desktop_version": "1.3.0",
+    "captured": "2026-10-23",
+    "width": 1440,
+    "height": 1000,
+    "raw_crop": [
+      1,
+      31,
+      1441,
+      1031
+    ],
+    "sha256": "030a91d1713ea54e844d6547c69f297b6e787f5c94083fe26abca8e42f3c91c7"
+  }
+]

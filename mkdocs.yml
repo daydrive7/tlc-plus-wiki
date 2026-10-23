@@ -1,22 +1,28 @@
-site_name: Track Layout Creator + Guide
+site_name: TLC+ Desktop Guide
 site_description: >-
   The complete guide for Track Layout Creator + (TLC+) — a desktop track layout
   editor for designing, generating and exporting race track layouts as .TED
   files for Gran Turismo 6.
 site_url: https://daydrive7.github.io/tlc-plus-wiki/
-repo_name: daydrive7/track-layout-creator-plus
-repo_url: https://github.com/daydrive7/track-layout-creator-plus
+repo_name: tlc-plus-wiki
+repo_url: https://github.com/daydrive7/tlc-plus-wiki
+edit_uri: edit/main/docs/
+strict: true
+validation:
+  links:
+    not_found: warn
+    anchors: warn
+    unrecognized_links: warn
 
 copyright: Copyright &copy; 2026 Track Layout Creator + contributors
 
 theme:
   name: material
+  custom_dir: overrides
   favicon: img/favicon.png
   icon:
     logo: material/clipboard-edit-outline
-  font:
-    text: Inter
-    code: JetBrains Mono
+  font: false
   palette:
     # Light mode (follows system preference, toggleable)
     - media: "(prefers-color-scheme: light)"
@@ -93,6 +99,11 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+  - Getting Help:
+      - Troubleshooting: troubleshooting.md
+      - FAQ: faq.md
+      - Known Limits: known-limits.md
+      - Desktop v1.3.0: releases.md
   - Getting Started:
       - Installation: getting-started/installation.md
       - Your First Track: getting-started/first-track.md
@@ -102,6 +113,7 @@ nav:
       - Geometry Tab: interface/geometry-tab.md
       - Map & Toggles Tab: interface/map-toggles-tab.md
       - Generators Tab: interface/generators-tab.md
+      - Decorations: interface/decorations.md
       - Preferences: interface/preferences.md
   - Core Concepts:
       - Track Geometry: concepts/track-geometry.md
@@ -113,6 +125,16 @@ nav:
       - Exporting: files/exporting.md
   - Generators:
       - Procedural Builder: generators/procedural.md
-      - Image Vectorizer: generators/image-vectorizer.md
+      - Image Tracing: generators/image-vectorizer.md
+      - GPX / CSV Tracing: generators/gps-tracing.md
   - Tips & Techniques: tips.md
-  - FAQ: faq.md
+
+plugins:
+  - search
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/daydrive7/track-layout-creator-plus/releases/tag/v1.3.0
+      name: Download desktop v1.3.0

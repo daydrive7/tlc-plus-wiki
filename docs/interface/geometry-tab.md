@@ -22,8 +22,9 @@ A practical example: a tight karting track works well at a 6–8 m width with a 
 
 | Control | Range | Default | What it does |
 |---|---|---|---|
-| **Number of sectors** | 2 – 10, step 1 | 4 | Stored in `.trk5` saves for your own reference; not used by the TED export itself. |
 | **Road length factor** | 0.5 – 2.0, step 0.1 | 1 | Scales the 100 m base length of the mid-track road segments written into the TED file — a hidden fine-tune for how GT6 assembles the ribbon. |
+
+**Number of sectors** is no longer a v1.3.0 control; the legacy save field does not drive checkpoint generation.
 
 Most builders never touch the road length factor; it exists for cases where a track exports slightly long or short versus the editor's plan-view measurement and needs a nudge to match a target length.
 
@@ -31,7 +32,7 @@ Most builders never touch the road length factor; it exists for cases where a tr
 
 Controls where the start line and pit lane sit along the lap. The panel changes shape depending on the first checkbox:
 
-- **Separate Pit/Start unchecked** (default) — a single slider, **Start/Pit Alignment (m)**, from −2500 to 2500 in steps of 50, moves start line and pit lane together. Internally the start offset is pinned to −3 m and the slider drives the shared pit offset.
+- **Separate Pit/Start unchecked** (default) — a single slider, **Start/Pit Alignment (m)**, from −2500 to 2500 in steps of 50, moves start line and pit lane together. The shared alignment control drives pit alignment; recheck stored start/pit offsets after toggling modes or loading a save.
 - **Separate Pit/Start checked** — two independent sliders appear: **Start Line Shift (m)** (−5000…5000, step 10) and **Pit Lane Offset (m)** (−5000…5000, step 50).
 
 On circuits, the pit offset rotates the road split and the finish line around the lap, and a magenta pit lane with a **PIT START** marker is drawn on the canvas so you can see exactly where drivers enter the pits. Point-to-point tracks use a different start scheme altogether (see Road Modes below).

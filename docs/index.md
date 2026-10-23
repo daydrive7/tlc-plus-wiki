@@ -1,98 +1,77 @@
 ---
-icon: material/home-outline
+hide:
+  - toc
 ---
 
-# Track Layout Creator + Guide
+<div class="tlc-eyebrow">DESKTOP GUIDE · VERSION 1.3.0</div>
 
-**Track Layout Creator +** (TLC+) is a free, open-source desktop track layout editor for designing, generating and exporting race track layouts as `.ted` files — the track format used by the **Track Path Editor** in *Gran Turismo 6*. Built with Python and Tkinter, it combines a precise node-based polygon editor with mathematical track generation, image vectorization, real terrain data and a built-in elevation editor.
+# Make your next great track.
 
-[Getting started :material-arrow-right:](getting-started/installation.md){ .md-button .md-button--primary }
-[Create your first track](getting-started/first-track.md){ .md-button }
+Design a circuit, trace a real route, shape the elevation and add trackside scenery. This is the guide to **Track Layout Creator + for desktop**, from your first launch to a `.ted` export.
 
-![Track Layout Creator + with a generated Grand Prix circuit](assets/screenshots/02-main-gp.png){ class="tlc-shot" }
-*(TLC+ v1.2.0 with a procedurally generated Grand Prix circuit on the Eifel Flat theme)*
+[Start building :material-arrow-right:](getting-started/first-track.md){ .md-button .md-button--primary }
+[Download & install](getting-started/installation.md){ .md-button }
 
----
+<div class="tlc-release" markdown>
+**New in 1.3.0** · [Decorations](interface/decorations.md), [editable GPS tracing](generators/gps-tracing.md), camera tilt and Classic light mode. [See what changed →](releases.md)
+</div>
 
-## What can you do with it?
+![The v1.3.0 Decorations palette and a circuit on Eifel terrain](assets/screenshots/18-decorations.png){ .tlc-shot }
 
-### :fontawesome-solid-pen-ruler&nbsp; Design tracks by hand
+*Desktop v1.3.0: the Decorations palette beside a sample circuit on Eifel terrain.*
 
-Place, drag and fine-tune control points on a zoomable canvas with Euler-spiral and circular corner interpolation, per-corner radii and camber, and live measurements of track length and corner count. A precision dialog lets you type exact coordinates, heights and radii for every node.
-
-### :fontawesome-solid-wand-magic-sparkles&nbsp; Generate tracks mathematically
-
-One-click procedural generators produce complete layouts in five flavours — Grand Prix, Technical/Karting, Oval/Speedway, Rally Stage and Abstract/Chaos — each with its own character, scale and corner profile. See [Procedural Builder](generators/procedural.md).
-
-### :fontawesome-solid-image&nbsp; Trace tracks from pictures
-
-The built-in [Image Vectorizer](generators/image-vectorizer.md) converts a PNG, JPG, WebP, BMP or GIF of a track map into an editable polygon using centerline extraction, outline tracing or a smart travelling-salesman fill — ideal for recreating real circuits.
-
-### :fontawesome-solid-mountain-sun&nbsp; Sculpt elevation with real terrain
-
-Four heightmap themes — Eifel, Eifel Flat, Death Valley and Andalusia — provide real-world terrain data with contour rendering, an interactive elevation profile graph and manual height nodes for jumps, crests and dips. See [Elevation & Terrain](concepts/elevation-terrain.md).
-
-### :fontawesome-solid-file-export&nbsp; Export for Gran Turismo 6
-
-TLC+ writes `.ted` files compatible with the official GT6 Track Path Editor, including banking, per-1000 m checkpoints, pit and start line placement, and several PS3-specific safety fixes. It also exports PostScript vector screenshots and `.pgn` polygon data.
-
-### :material-translate&nbsp; Nine interface languages
-
-The app ships with English, Polish, Spanish, Portuguese (BR/PT), French, German, Japanese and Russian translations — and this guide can be machine-translated into any language with the **Translate** button in the header.
-
----
-
-## Where to go next?
+## What would you like to do?
 
 <div class="grid cards" markdown>
 
--   :material-download:&nbsp; **[Installation](getting-started/installation.md)**
+-   :material-flag-checkered: **Build your first circuit**
 
-    ---
- 
-    Set up TLC+ on Windows, macOS or Linux in under two minutes.
+    Generate a layout, adjust a corner, save the geometry and export your track.
 
--   :material-flag-outline:&nbsp; **[Your First Track](getting-started/first-track.md)**
+    [Follow the walkthrough →](getting-started/first-track.md)
 
-    ---
- 
-    A five-minute walkthrough from empty canvas to exported `.ted` file.
+-   :material-map-marker-path: **Recreate a real route**
 
--   :material-dock-window:&nbsp; **[Window Overview](interface/overview.md)**
+    Turn GPX or latitude/longitude CSV data into editable nodes, or keep it as a reference.
 
-    ---
- 
-    A guided tour of the toolbar, sidebar, canvas, elevation graph and status card.
+    [Trace a GPS path →](generators/gps-tracing.md)
 
--   :material-keyboard:&nbsp; **[Toolbar & Canvas Tools](interface/toolbar.md)**
+-   :material-pine-tree: **Add trackside scenery**
 
-    ---
- 
-    Every tool explained — pen, selection, camber, pan, rotate, scale and more.
+    Place individual decorations, choose variants and fill a circuit at regular intervals.
 
--   :material-content-save:&nbsp; **[Files & Data](files/saving-loading.md)**
+    [Use the decoration editor →](interface/decorations.md)
 
-    ---
- 
-    Save formats, imports (GPX, CSV, TED) and GT6-ready exports.
+-   :material-image-outline: **Trace a track map**
 
--   :material-help-circle-outline:&nbsp; **[FAQ](faq.md)**
+    Choose Centerline, Outline or Smart Fill for a clean image of a layout.
 
-    ---
- 
-    Answers to the most common questions and troubleshooting tips.
+    [Trace an image →](generators/image-vectorizer.md)
+
+-   :material-content-save-outline: **Keep your work safe**
+
+    Understand what `.trk5`, `.ted` and `.pgn` preserve before closing the app.
+
+    [Save, back up & reopen →](files/saving-loading.md)
+
+-   :material-lifebuoy: **Solve a problem**
+
+    Fix launch failures, missing controls, tracing issues and export problems.
+
+    [Troubleshoot →](troubleshooting.md)
 
 </div>
 
----
+## A reliable workflow
 
-## About the project
+**Choose scenery → build geometry → check elevation → save `.trk5` → decorate → export `.ted`.**
 
-Track Layout Creator + is a community enhancement of the original **Track Layout Creator** by **eran0004** (GTPlanet). Version 1.2 and the "Plus" feature set — GPX/CSV import, high-DPI scaling, the modern dark theme, start/finish line fixes and the procedural math builders — were contributed by **daydrive7** with additional community input.
+Keep both files: v1.3.0's `.trk5` serializer **does not save decorations**. A TED export preserves supported decoration records, but importing TED reconstructs the road and resets node heights/banking. [Read the save limits](files/saving-loading.md#what-a-trk5-preserves).
 
-- **Current version:** 1.2.0 (August 2026)
-- **License:** MIT — free to use, modify and redistribute
-- **Platform:** Windows, macOS and Linux (Python 3.8+)
-- **Source code:** [github.com/daydrive7/track-layout-creator-plus](https://github.com/daydrive7/track-layout-creator-plus)
+## Find your way around
 
-If you find a bug or have an idea for a feature, the project welcomes contributions — see the `CONTRIBUTING.md` file in the repository for guidelines.
+Use the search box for a tool name, file extension or task. The [window overview](interface/overview.md) explains the workspace; [controls](interface/toolbar.md) lists gestures and shortcuts; [core concepts](concepts/track-geometry.md) explains the geometry behind the road.
+
+This guide covers **desktop v1.3.0 only**. It does not describe TLC+ Web. English is the maintained guide language; optional machine translation opens Google Translate and is not a reviewed localization.
+
+TLC+ builds on the original Track Layout Creator by **eran0004**, with the Plus project maintained by **daydrive7**. [Desktop releases](https://github.com/daydrive7/track-layout-creator-plus/releases) · [Report an app issue](https://github.com/daydrive7/track-layout-creator-plus/issues) · [Guide source](https://github.com/daydrive7/tlc-plus-wiki)

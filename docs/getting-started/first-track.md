@@ -1,88 +1,54 @@
-# Your First Track
+# Your first track
 
-This walkthrough takes you from a fresh install to an exported, GT6-ready `.ted` file in about five minutes. Along the way you will touch every part of the interface once — the generators, the pen tool, the sidebar controls and the export dialog — so you have a mental map of the app before diving into the details.
+Build a small circuit, make one edit, save the geometry and export a TED. Start with [installation](installation.md) complete and an empty editor.
 
-![A generated Grand Prix circuit ready for editing](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
+## 1. Choose scenery and generate a layout
 
-## Step 1 — Generate a starting point
+Choose **Eifel Flat** from the scenery menu for an easy first project. Open **Generators** and click **Grand Prix (Fast & Flowing)**. Each click replaces the current layout, so save existing work before experimenting.
 
-You could place every corner by hand, but it is much more fun to start from a machine-made layout:
+![A generated Grand Prix circuit](../assets/screenshots/02-main-gp.png){ .tlc-shot }
 
-1. Click the **Generators** tab on the left sidebar.
-2. Click **Grand Prix (Fast & Flowing)**.
+*Desktop v1.3.0: a generated Grand Prix circuit with a sample manual-height edit.*
 
-Within a moment the canvas fills with a closed circuit: blue control nodes connected by a grey control polygon, the smooth road drawn along it, index labels next to every node and an elevation profile at the bottom of the window. The status card in the lower-right corner shows the theme, the track length and the number of corners. Every click of the button rolls a new random layout — press it a few times until you like the bones of the track.
+Leave **Circuit** enabled on the Geometry tab for a closed loop. For a Rally Stage, disable Circuit before generating.
 
-!!! tip "Starting from scratch instead"
-    If you want to draw a track from a paper sketch or an image, skip the generator and read the [Image Vectorizer](../generators/image-vectorizer.md) page. To place points manually, select the **Pen tool** from the toolbar and click on the canvas.
+## 2. Move a corner
 
-## Step 2 — Get comfortable in the canvas
+Choose **Selection**, click a control node and drag it. Zoom with the wheel; right-drag empty canvas to pan; press ++c++ to centre the track. Right-dragging a node can change its radius, so start panning away from nodes.
 
-Spend a minute practising navigation before editing anything:
+Double-click a node, or select it and press ++enter++, to enter precise coordinates, radius, height and camber. Use ++ctrl+z++ to undo a geometry edit. [All tools and controls →](../interface/toolbar.md)
 
-- **Scroll wheel** — zoom in and out, centred on the mouse cursor.
-- **Right-click and drag** — pan the view (works with any tool active).
-- ++c++ — centre the view on the whole track.
+![The v1.3.0 Edit Point precision dialog](../assets/screenshots/05-edit-point.png){ .tlc-shot }
 
-Select the **Selection tool** (the arrow icon at the top-left of the canvas) and click a control node. The node turns orange and a pair of small dots appear flanking the corner — these are the Euler handles. Drag the node itself to move the corner, or drag the flanking dots to change how sharply the corner rounds off.
+## 3. Check road width, start and elevation
 
-For numeric precision, double-click any node (or select it and press ++enter++) to open the **Edit Point** dialog, where you can type exact X/Y coordinates, a height, a corner radius, camber and the number of curve segments.
+On **Geometry**, try a modest road width and inspect the resulting corners. Check the start line and pit markers. Keep your first track on flat terrain; introduce manual heights only after you understand the [elevation controls](../concepts/elevation-terrain.md).
 
-![The Edit Point precision dialog](../assets/screenshots/05-edit-point.png){ class="tlc-shot" }
+Inspect sharp corners, overlaps and canvas warnings. A successful export does not establish that a layout will drive correctly in GT6.
 
-## Step 3 — Tune the road
+## 4. Save the editable geometry
 
-Switch to the **Geometry** tab and adjust the sliders that shape the whole track. The two you will feel immediately are:
+Choose **File → Save track** or press ++ctrl+s++. Save a `.trk5` and note its location. Use another filename for each milestone.
 
-- **Road width (m)** — the drawn and exported width of the tarmac. The minimum corner radius automatically adapts so hairpins cannot become geometrically impossible.
-- **Max camber angle (°)** — the upper limit for automatic banking applied to corners. Higher values produce more visibly banked bends in the isometric view.
+!!! warning "A TRK5 is not a complete session backup"
+    v1.3.0 saves the nodes and a subset of track settings. It omits decorations, reference paths, undo history and several elevation/session controls. Keep notes of those settings and export a TED after decorating. [What saves preserve →](../files/saving-loading.md#what-a-trk5-preserves)
 
-Further down the same tab you will find **Road Modes**. Leave **Circuit** checked for now — it keeps the loop closed and enables start/pit line logic. If you were building a point-to-point sprint or rally stage instead, you would uncheck it.
+## 5. Add a few decorations
 
-## Step 4 — Add some elevation
+Open **Decorations**, choose an item from the current scenery's palette and activate the **Decoration tool**. Click beside the road to place it. Drag an item along the track; use **Flip Side** or **Randomize Variant** when appropriate.
 
-Tracks on a billiard table feel lifeless, so give yours some vertical interest:
+Choose scenery before decorating: confirming a switch to another scenery clears placed decorations. [Decoration workflow →](../interface/decorations.md)
 
-1. On the **Geometry** tab, in **MANUAL HEIGHT CONTROLS**, tick **Enable Manual Height**.
-2. Double-click a node on a straight and give it a positive **Z (Height m)** value — say `12`.
-3. Double-click a node further along the track and set it to `-4`.
+## 6. Export a TED
 
-The elevation profile at the bottom of the window immediately shows the crest and dip, with the road smoothly easing between your height nodes. The **Ramp UP/DOWN Transition** sliders control what fraction of each segment is used for the ease-in and ease-out; the graph's smoothstep easing can be disabled with the **Smooth Elevation Graph** toggle on the *Map & Toggles* tab if you prefer linear ramps.
+Choose **File → Export to TED**, select an output location and confirm. Keep the `.ted` beside the `.trk5`. Export needs at least **three nodes for a circuit** or **two for an open stage**.
 
-!!! info
-    Even without manual heights, the road already follows the real terrain of the active theme. Manual heights are *offsets blended on top of* the terrain profile — see [Elevation & Terrain](../concepts/elevation-terrain.md) for the full model.
+The TED carries the final road, sampled elevation, banking and supported decoration records. It is an output format; re-importing it reconstructs an approximation of your editable road. [Export details and limits →](../files/exporting.md)
 
-## Step 5 — Save your work
+## 7. Review before closing
 
-Press ++ctrl+s++ (or **File → Save track**). TLC+ writes a `.trk5` file into the `savefiles/` folder, named with the current date and time, for example `20260826_154200.trk5`. The file contains the entire project — polygon, per-node radii and heights, and all sidebar settings — so you can reopen it later with ++ctrl+o++ and continue exactly where you left off.
+Open **File → Draw isometric view**. Rotate, pan and zoom to check the road and terrain. v1.3.0 adds vertical camera tilt while rotating. Use the main toolbar's screenshot action to save an image; the File menu still calls this **Export to PostScript**, but the main canvas normally saves PNG.
 
-Saving early and often is worthwhile because the undo history (and everything else) lives only in memory: closing the app without saving discards the current session.
+Check that both your `.trk5` and `.ted` exist. Do not close the editor expecting an automatic session recovery. Exporting does not transfer a course to a console; use a separate workflow supported by your own GT6 setup.
 
-## Step 6 — Export to TED
-
-When the layout feels right, export it for *Gran Turismo 6*:
-
-1. Choose **File → Export to TED** (there is no keyboard shortcut for this one).
-2. Pick a location — the default is the `output/` folder — and confirm.
-
-TLC+ now computes the final geometry: it rounds the corners, resamples the road into segments, spreads banking transitions, generates checkpoints every full 1000 m, and writes the 156-byte TED header GT6 expects, including the 3D track length, elevation difference and corner count. You need at least two control points (three when Circuit mode is on) before an export is possible.
-
-The resulting `.ted` can be loaded by the official **GT6 Track Path Editor** on a PS3, where it can be shared or driven. For everything that happens during the export — including the PS3 crash guard that removes sub-0.1 m road segments — see the [Exporting](../files/exporting.md) page.
-
-## Step 7 — Take a victory lap
-
-Before you close the app, treat yourself to a 3D preview: **File → Draw isometric view** opens an isometric rendering window of your track with its terrain. Drag to rotate the camera, scroll to zoom, press ++r++ to reset the view — and if you like what you see, use the toolbar's camera button (or **File → Export to PostScript**) to save a vector screenshot to `img/screen.ps`.
-
-![The isometric 3D preview window](../assets/screenshots/10-isometric.png){ class="tlc-shot" }
-
----
-
-## Where to go from here
-
-You have now used every major area of TLC+. The rest of this guide goes deep on each of them:
-
-- **[Window Overview](../interface/overview.md)** — names and locations of every UI element.
-- **[Toolbar & Canvas Tools](../interface/toolbar.md)** — complete mouse and keyboard reference.
-- **[Track Geometry](../concepts/track-geometry.md)** — how corners, radii, camber and Euler curves really work.
-- **[Files & Data](../files/saving-loading.md)** — every format TLC+ reads and writes.
-- **[Tips & Techniques](../tips.md)** — workflows used by experienced track builders.
+Next: [trace GPS data](../generators/gps-tracing.md), [trace an image](../generators/image-vectorizer.md), or explore [geometry](../concepts/track-geometry.md).

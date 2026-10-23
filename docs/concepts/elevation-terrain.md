@@ -57,7 +57,7 @@ Camber banking adds a vertical component of its own: the road tilts across its w
 
 ## Theme-specific elevation notes
 
-- Switching themes via the **Theme** menu reloads the heightmap and re-samples everything — your polygon stays, but a road that hugged Andalusian cliffs may suddenly float above (or sink into) Eifel Flat meadows. Re-check the profile after every theme switch.
+- Switching themes via the **Scenery** menu reloads the heightmap and re-samples everything — your polygon stays, but a road that hugged Andalusian cliffs may suddenly float above (or sink into) Eifel Flat meadows. Re-check the profile after every theme switch.
 - The elevation graph always reflects the *current* theme, including manual heights and their easing.
 - Isometric view (**File → Draw isometric view**) renders the same terrain data in 3D and is the quickest sanity check that your road hasn't tunnelled through a hillside.
 
