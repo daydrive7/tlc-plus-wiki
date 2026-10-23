@@ -1,73 +1,33 @@
-# Track Layout Creator + — Guide (MkDocs)
+# TLC+ Desktop Wiki
 
-The complete user guide / wiki for **Track Layout Creator + v1.2.0**, built with
-[MkDocs](https://www.mkdocs.org) and the [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
-theme.
+User documentation for **Track Layout Creator + desktop v1.3.0**, built with MkDocs Material. The canonical guide URL remains <https://daydrive7.github.io/tlc-plus-wiki/> so the released app's Help → Guide link continues to work once Pages is enabled and a deployment succeeds.
 
-## Quick start
+## Build and review
 
-```bash
-pip install -r requirements.txt
-mkdocs serve       # live preview at http://127.0.0.1:8000
+```sh
+python -m venv .venv
+# Activate the environment for your OS, then:
+python -m pip install -r requirements.txt
+node --test tests/translate.test.cjs
+python -m mkdocs build --strict
+python scripts/check_site.py site
+python -m mkdocs serve
 ```
 
-To build the static site:
+Use the local URL printed by MkDocs, including `/tlc-plus-wiki/`. Built HTML is in `site/`. Serve this folder over HTTP for working search; browser restrictions can prevent search when opening files directly.
 
-```bash
-mkdocs build --strict   # output in site/
-```
+## Review before launch
 
-## Structure
+See [REVIEW.md](REVIEW.md) for scope, evidence, remaining manual checks and the launch procedure. This overhaul targets v1.3.0 only. Do not describe development builds or TLC+ Web as this desktop release.
 
-```
-├── mkdocs.yml                  # theme, palette, extensions, navigation
-├── docs/
-│   ├── index.md                # Home / landing page
-│   ├── getting-started/        # Installation, first-track tutorial
-│   ├── interface/              # Window overview, toolbar, sidebar tabs, preferences
-│   ├── concepts/               # Track geometry, elevation, themes
-│   ├── files/                  # Saving/loading, importing, exporting
-│   ├── generators/             # Procedural builder, image vectorizer
-│   ├── tips.md                 # Tips & techniques
-│   ├── faq.md                  # FAQ
-│   ├── assets/screenshots/     # Real app screenshots (auto-captured from v1.2.0)
-│   ├── assets/icons/           # Toolbar tool icons (from the app itself)
-│   ├── stylesheets/extra.css   # Translate button + screenshot frame styles
-│   └── javascripts/translate.js# Header translate button (Google Translate)
-```
+The source is English. Optional Google Translate links are unreviewed machine translation and make no request until followed. System fonts keep the guide independent of a font CDN. Earlier app screenshots are labeled v1.2.0; the added v1.3.0 controls are described in text.
 
-## Features of this guide
+## CI and Pages
 
-- **Material theme** with an indigo primary / teal accent palette.
-- **Light & dark mode** — follows the system preference, with a manual toggle
-  in the header.
-- **Translate button** in the header — machine-translates any page via Google
-  Translate's `translate.goog` mirror (works once the site is hosted publicly;
-  shows an explanatory note when running locally).
-- **Real screenshots** — every screenshot was captured automatically from the
-  actual v1.2.0 application running headlessly.
-- All content was fact-checked against the v1.2.0 source code (defaults,
-  slider ranges, file formats, generator parameters).
+Pull requests build the guide, validate internal links/fragments/assets, test translation URLs and upload an HTML review artifact. They **do not deploy**. Main-branch pushes and main-branch manual runs publish only after the same checks pass.
 
-## Deploying to GitHub Pages
+An owner must enable **Settings → Pages → Build and deployment → Source: GitHub Actions**. The previous August deployment failed with a Pages 404 because this was not enabled; a successful local build alone cannot fix that repository setting. `configure-pages` now checks it before publication.
 
-The app's **Help → Guide** menu opens
-<https://daydrive7.github.io/tlc-plus-wiki/> — this project is that site.
+Keep the existing canonical URL and public audience. Do not substitute another hosting service for the app's hard-coded guide URL. [GitHub custom workflow documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
-The included workflow (`.github/workflows/ci.yml`) builds and deploys the site
-automatically when pushed to the repository's default branch (enable
-*Settings → Pages → Build and deployment → Source: GitHub Actions* once).
-
-Manual alternative:
-
-```bash
-mkdocs build
-# push site/ contents to the gh-pages branch, e.g. with mkdocs gh-deploy
-```
-
-## Notes on MkDocs versions
-
-Built with MkDocs **1.6.1** and Material **9.7.7** (the current stable stack —
-MkDocs 2.0 had been announced but not released at the time of writing, and its
-rewritten theming/plugin system is not backwards compatible). Versions are
-pinned in `requirements.txt` for reproducible builds.
+The dependency pins retain the repository's MkDocs 1.6.1 / Material 9.7.7 stack. Avoid changing documentation tooling during the content review without a separate need.

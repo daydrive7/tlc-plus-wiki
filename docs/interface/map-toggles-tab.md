@@ -1,5 +1,8 @@
 # Map & Toggles Tab
 
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
 The second sidebar tab controls *how the map and your track are rendered* — it never changes the track itself, only what you see. Its two sections cover elevation-map display details and eleven display toggles. Use this tab to declutter the canvas while sketching, then switch everything back on for a final review.
 
 ![The Map & Toggles tab](../assets/screenshots/03-sidebar-map-toggles.png){ class="tlc-shot" }

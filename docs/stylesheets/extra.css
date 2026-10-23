@@ -109,3 +109,33 @@
 .md-typeset kbd {
   font-size: 0.72rem;
 }
+
+/* Desktop manual: clear type, restrained color, usable without web fonts. */
+:root { --md-text-font: "Segoe UI", system-ui, sans-serif; --md-code-font: Consolas, monospace; }
+.md-header { background: #172739; }
+.md-tabs { background: #172739; }
+.md-banner { background: #23483f; color: #fff; }
+.md-banner a { color: #fff; text-decoration: underline; text-underline-offset: .16em; }
+.md-typeset h1 { font-weight: 750; letter-spacing: -.035em; color: var(--md-default-fg-color); }
+.md-typeset h2 { font-weight: 650; letter-spacing: -.02em; }
+.tlc-eyebrow { font-size: .65rem; font-weight: 700; letter-spacing: .14em; color: var(--md-default-fg-color--light); margin-top: .5rem; }
+.tlc-release { margin: 1.4rem 0; padding: .8rem 1rem; border-left: 4px solid #379e85; border-radius: .25rem; background: var(--md-code-bg-color); font-size: .75rem; }
+.tlc-release p { margin: 0; }
+.md-typeset .grid.cards > ul > li { border-radius: .5rem; padding: 1.1rem; }
+.md-typeset .md-button { border-radius: .35rem; margin: .2rem .3rem .2rem 0; }
+.md-typeset a:focus-visible, button:focus-visible { outline: 3px solid #dc9c35; outline-offset: 3px; }
+.tlc-translate-menu[hidden] { display: none; }
+.tlc-translate-menu__item { text-decoration: none; min-height: 40px; }
+.tlc-translate-menu__item:focus-visible { outline-offset: -3px; }
+.tlc-translate-menu__note { font-size: .7rem; }
+.md-header__button.tlc-translate { font-family: inherit; font-size: .65rem; font-weight: 600; width: auto; padding: .4rem; }
+@media (max-width: 600px) { .md-header__button.tlc-translate { font-size: .6rem; } .tlc-translate-menu { max-width: calc(100vw - 24px); } }
+@media print { .md-banner, .tlc-translate-menu, .tlc-translate { display: none !important; } }
+
+[data-md-color-scheme="slate"] { --md-primary-fg-color: #80d6c1; --md-accent-fg-color: #9ce7d5; }
+[data-md-color-scheme="default"] { --md-primary-fg-color: #176d59; --md-accent-fg-color: #145e4d; }
+.md-typeset .md-button--primary { background: #21745f; border-color: #21745f; color: white; }
+[data-md-color-scheme="slate"] .md-typeset .md-button--primary { background: #80d6c1; border-color: #80d6c1; color: #122c25; }
+.md-typeset .tlc-eyebrow + h1 { font-size: clamp(1.65rem, 3vw, 2.3rem); line-height: 1.15; margin-bottom: 1rem; }
+
+.tlc-tool-icon { width: 22px; height: 22px; vertical-align: middle; border-radius: .2rem; background: #3a3f4b; padding: 2px; }

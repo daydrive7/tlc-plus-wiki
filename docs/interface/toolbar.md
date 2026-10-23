@@ -1,6 +1,9 @@
 # Toolbar & Canvas Tools
 
-The toolbar floating at the top-left of the canvas is your right hand while editing. Four of its tools — Selection, Pen, Camber and Pan — are *radio tools*: exactly one is active at a time, and each changes what left-clicking, dragging and right-clicking mean. The remaining buttons are one-shot actions. This page explains every tool and gesture, then lists the complete keyboard map.
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
+The toolbar floating at the top-left of the canvas is your right hand while editing. Selection, Pen, Camber, Pan and Decoration are persistent editing modes; other buttons perform actions or transforms. The active tool changes the meaning of clicks and drags. This page explains every tool and gesture, then lists the complete keyboard map.
 
 ![The toolbar in the upper-left corner of the canvas](../assets/screenshots/01-main-blank.png){ class="tlc-shot" }
 
@@ -8,7 +11,7 @@ The toolbar floating at the top-left of the canvas is your right hand while edit
 
 ### Selection { #selection }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-selection.png" alt="">Selection</span>
+![Selection](../assets/icons/tool-selection.png){ .tlc-tool-icon } **Selection**
 
 The default general-purpose tool. Click a control node to select it (any previous selection is cleared); Shift-click to add or remove nodes from a multi-selection; click empty space to deselect everything. Dragging a selected node translates the whole selection on the canvas, constrained to the X or Y axis if you have armed a constraint (see the ++x++/++y++ keys below).
 
@@ -16,7 +19,7 @@ Right-dragging on a node adjusts its **corner radius** interactively: pull to wi
 
 ### Pen { #pen }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-pen.png" alt="">Pen</span>
+![Pen](../assets/icons/tool-pen.png){ .tlc-tool-icon } **Pen**
 
 The drawing tool. Left-click empty canvas to append a new control node with sensible defaults (height 0, radius 90 m, camber *global*, one curve segment). Left-click an existing polygon line to **split** it — a new node is inserted exactly where you clicked, perfect for adding a chicane into a long straight. Left-click a node to select it, and — this is the pen's party trick — **Shift-click a node to delete it**.
 
@@ -24,33 +27,33 @@ Dragging moves the selected node(s) just like the selection tool, and right-drag
 
 ### Camber { #camber }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-camber.png" alt="">Camber</span>
+![Camber](../assets/icons/tool-camber.png){ .tlc-tool-icon } **Camber**
 
 Select nodes exactly as with the selection tool, then **drag vertically** on a selected node to adjust its banking: the per-point camber angle sweeps from 0° to 30° in 0.01°-per-pixel steps. A node set to −1 (the default) shows `C Global` and follows the automatic global camber rules from the Geometry tab; any other value overrides banking for that corner individually, shown as `C 4.5°` on the node label. See [Track Geometry → Camber](../concepts/track-geometry.md#camber) for how per-point and global camber interact.
 
 ### Pan { #pan }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-pan.png" alt="">Pan</span>
+![Pan](../assets/icons/tool-pan.png){ .tlc-tool-icon } **Pan**
 
 Left-drag pans the canvas and its rulers. Because right-drag pans in *every* tool, the pan tool mainly matters when you want the left button to never modify geometry — for example while reviewing a layout with a tablet.
 
 ### Zoom in / Zoom out { #zoom }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-zoom_in.png" alt="">Zoom in</span> <span class="tlc-tool"><img src="../assets/icons/tool-zoom_out.png" alt="">Zoom out</span>
+![Zoom in](../assets/icons/tool-zoom_in.png){ .tlc-tool-icon } **Zoom in** ![Zoom out](../assets/icons/tool-zoom_out.png){ .tlc-tool-icon } **Zoom out**
 
 Step the zoom by a factor of √2 (≈ ×1.41) per click, clamped between 0.0625× and 16×. These duplicate the ++plus++ / ++minus++ keys and the scroll wheel, which additionally anchor the zoom to the cursor position — usually the more comfortable option.
 
 ### Reverse direction { #reverse }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-reverse.png" alt="">Reverse</span>
+![Reverse](../assets/icons/tool-reverse.png){ .tlc-tool-icon } **Reverse**
 
 Flips the track's direction of travel: the polygon is reversed and the start point rotates by two nodes. Corner numbering, start/pit placement and the elevation profile all recompute to match. Use this when a layout drives better "the other way around" — a surprisingly common realization once elevation is in place.
 
 ### Screenshot { #screenshot }
 
-<span class="tlc-tool"><img src="../assets/icons/tool-screenshot.png" alt="">Screenshot</span>
+![Screenshot](../assets/icons/tool-screenshot.png){ .tlc-tool-icon } **Screenshot**
 
-Exports the current canvas as colour PostScript to `img/screen.ps` inside the application folder (the folder is created if missing). This is identical to **File → Export to PostScript**. The isometric viewer has its own export, triggered with ++p++ inside that window.
+In v1.3.0, opens a Save screenshot dialog and normally writes **PNG**, with a PostScript fallback if capture fails. The File menu still calls the action **Export to PostScript**. See [Exporting](../files/exporting.md#main-canvas-screenshot).
 
 ### Sidebar toggle
 
@@ -65,7 +68,7 @@ These three live at the bottom of the **Geometry** tab under OTHER TOOLS, but th
 - **Randomize Selected Nodes** — displaces every selected node by a random offset of up to ±25 m (clamped to the map edge). A quick "chaos button" for breaking too-regular layouts.
 
 !!! warning "Experimental mirroring"
-    X/Y mirror transforms exist in the codebase but are not exposed in the v1.2.0 user interface. The ++x++/++y++ keys arm *axis constraints* for dragging, not mirroring.
+    X/Y mirror transforms exist in the codebase but are not exposed as a documented v1.3.0 workflow. The ++x++/++y++ keys arm *axis constraints* for dragging, not mirroring.
 
 ---
 
@@ -116,7 +119,7 @@ This is the same reference card available in-app via **Help → Controls**. Bind
 
 | Input | Action |
 |---|---|
-| **Left-drag** | Rotate the camera |
+| **Left-drag / rotate tool** | Rotate the camera; vertical dragging also adjusts tilt in v1.3.0 |
 | **Right-drag** | Pan |
 | **Scroll wheel** | Zoom |
 | ++p++ | Export PostScript |
@@ -126,7 +129,8 @@ This is the same reference card available in-app via **Help → Controls**. Bind
 
 ## Undo and redo
 
-Every mutating action — moving or deleting nodes, editing values, generating tracks, importing files, flipping direction — pushes a full snapshot of the polygon onto the history stack before changing anything. There is **no depth limit**: you can undo an entire editing session step by step with ++ctrl+z++ and replay it forward with ++ctrl+y++. Starting a new edit after undoing clears the redo branch, exactly as in familiar office applications. Note that history covers the *polygon* — sidebar settings like road width are not part of snapshots.
+Geometry edits and decoration edits participate in the in-memory history. Use ++ctrl+z++ and ++ctrl+y++ while editing, but do not treat history as a project backup. Sidebar settings are not complete snapshots, and native project loading does not create a reliable restore point for the previous session. Save milestones before loading, generating or tracing another road.
 
-!!! tip "Pen and safety"
-    The pen tool refuses to let you paint yourself into a corner: minimum radii are enforced live, and deleting a node with Shift-click while other nodes depend on it simply reconnects the polygon. Combine with unlimited undo and it is genuinely hard to lose work on the canvas.
+## Decoration mode
+
+Activate the Decoration tool, then click beside the road to place the selected palette type. Drag a placed item to move it; right-click it to delete. These gestures differ from normal node editing. The Decorations tab provides variant, side and fill controls. [Full decoration workflow →](decorations.md)

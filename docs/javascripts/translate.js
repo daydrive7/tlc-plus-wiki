@@ -1,168 +1,90 @@
-/* ---------------------------------------------------------------------------
- * TLC+ Guide — Google Translate header button
- * Adds a language button to the Material header. On the hosted site it opens
- * the current page through Google Translate's translate.goog mirror, keeping
- * every language available that is not English. On translate.goog itself the
- * button turns into "Show original".
- * ------------------------------------------------------------------------- */
+/* Optional third-party translation. No requests occur until a link is followed. */
 (function () {
   'use strict';
-
-  var LANGS = [
-    { code: 'pl', label: 'Polski' },
-    { code: 'de', label: 'Deutsch' },
-    { code: 'es', label: 'Español' },
-    { code: 'fr', label: 'Français' },
-    { code: 'pt', label: 'Português' },
-    { code: 'pt-BR', label: 'Português (Brasil)' },
-    { code: 'ru', label: 'Русский' },
-    { code: 'ja', label: '日本語' },
-    { code: 'it', label: 'Italiano' },
-    { code: 'nl', label: 'Nederlands' },
-    { code: 'tr', label: 'Türkçe' },
-    { code: 'uk', label: 'Українська' },
-    { code: 'zh-CN', label: '中文（简体）' },
-    { code: 'zh-TW', label: '中文（繁體）' }
+  var languages = [
+    ['pl', 'Polski'], ['de', 'Deutsch'], ['es', 'Español'],
+    ['fr', 'Français'], ['pt', 'Português'], ['ru', 'Русский'], ['ja', '日本語']
   ];
-
-  var STORAGE_KEY = 'tlcp-translate-lang';
-
-  function onTranslateHost() {
-    return location.hostname.endsWith('.translate.goog');
+  function isLocalUrl(value) {
+    var u = new URL(value);
+    return u.protocol !== 'https:' || u.hostname === 'localhost' ||
+      u.hostname === '127.0.0.1' || u.hostname === '[::1]';
   }
-
-  function isLocal() {
-    return (
-      location.hostname === 'localhost' ||
-      location.hostname === '127.0.0.1' ||
-      location.protocol === 'file:'
-    );
+  function translationUrl(value, language) {
+    if (isLocalUrl(value)) return null;
+    var url = new URL('https://translate.google.com/translate');
+    url.searchParams.set('sl', 'en');
+    url.searchParams.set('tl', language);
+    url.searchParams.set('u', value);
+    return url.href;
   }
-
-  function originalHostFromTranslateHost(hostname) {
-    // Google escapes dots in the original host as hyphens.
-    var raw = hostname.replace(/\.translate\.goog$/, '');
-    // Only undo the escaping when it looks like a github.io style host.
-    return raw.replace(/-/g, '.');
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { translationUrl: translationUrl, isLocalUrl: isLocalUrl };
   }
-
-  function buildTranslatedUrl(lang) {
-    var host = location.hostname;
-    var path = location.pathname;
-    var query = new URLSearchParams(location.search);
-    query.set('_x_tr_sl', 'auto');
-    query.set('_x_tr_tl', lang);
-    query.set('_x_tr_hl', lang);
-    return (
-      'https://' + host + '.translate.goog' + path + '?' + query.toString()
-    );
-  }
-
-  function buildOriginalUrl() {
-    var host = originalHostFromTranslateHost(location.hostname);
-    var path = location.pathname;
-    var query = new URLSearchParams(location.search);
-    ['_x_tr_sl', '_x_tr_tl', '_x_tr_hl', '_x_tr_pto'].forEach(function (k) {
-      query.delete(k);
-    });
-    var qs = query.toString();
-    return 'https://' + host + path + (qs ? '?' + qs : '');
-  }
-
-  function makeButton() {
-    var btn = document.createElement('button');
-    btn.className = 'md-header__button md-icon tlc-translate';
-    btn.type = 'button';
-    btn.setAttribute('aria-label', 'Translate');
-    btn.title = onTranslateHost() ? 'Show original (English)' : 'Translate';
-    btn.textContent = onTranslateHost() ? 'language' : 'translate';
-    return btn;
-  }
-
-  function makeMenu() {
-    var menu = document.createElement('div');
-    menu.className = 'tlc-translate-menu';
-    menu.setAttribute('role', 'menu');
-    menu.hidden = true;
-
-    var title = document.createElement('div');
-    title.className = 'tlc-translate-menu__title';
-    title.textContent = 'Translate this page';
-    menu.appendChild(title);
-
-    if (onTranslateHost()) {
-      var orig = document.createElement('button');
-      orig.type = 'button';
-      orig.className = 'tlc-translate-menu__item tlc-translate-menu__item--strong';
-      orig.textContent = 'Show original (English)';
-      orig.addEventListener('click', function () {
-        location.href = buildOriginalUrl();
-      });
-      menu.appendChild(orig);
-    }
-
-    LANGS.forEach(function (l) {
-      var b = document.createElement('button');
-      b.type = 'button';
-      b.className = 'tlc-translate-menu__item';
-      b.setAttribute('lang', l.code);
-      b.textContent = l.label;
-      b.addEventListener('click', function () {
-        try { localStorage.setItem(STORAGE_KEY, l.code); } catch (e) { /* ignore */ }
-        location.href = buildTranslatedUrl(l.code);
-      });
-      menu.appendChild(b);
-    });
-
-    var note = document.createElement('div');
-    note.className = 'tlc-translate-menu__note';
-    note.textContent = isLocal()
-      ? 'Machine translation opens on the hosted site — run the guide from its public URL for this to work.'
-      : 'Machine translation by Google Translate.';
-    menu.appendChild(note);
-    return menu;
-  }
-
+  if (typeof document === 'undefined') return;
   function inject() {
     if (document.querySelector('.tlc-translate')) return;
-    var option = document.querySelector('.md-header__inner .md-header__option');
-    if (!option) return;
-
-    var btn = makeButton();
-    var menu = makeMenu();
-    document.body.appendChild(menu);
-
-    function openMenu() {
-      menu.hidden = false;
-      var rect = btn.getBoundingClientRect();
-      menu.style.top = rect.bottom + 8 + 'px';
-      menu.style.right = Math.max(8, window.innerWidth - rect.right) + 'px';
-      btn.classList.add('tlc-translate--active');
-    }
-    function closeMenu() {
-      menu.hidden = true;
-      btn.classList.remove('tlc-translate--active');
-    }
-
-    btn.addEventListener('click', function (e) {
-      e.stopPropagation();
-      if (menu.hidden) openMenu(); else closeMenu();
+    var header = document.querySelector('.md-header__inner');
+    if (!header) return;
+    var button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'md-header__button tlc-translate';
+    button.textContent = 'Translate';
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'tlc-translation-links');
+    button.setAttribute('aria-label', 'Translate this page with Google Translate');
+    var panel = document.createElement('div');
+    panel.id = 'tlc-translation-links';
+    panel.className = 'tlc-translate-menu';
+    panel.hidden = true;
+    panel.setAttribute('aria-label', 'Machine translation languages');
+    var title = document.createElement('div');
+    title.className = 'tlc-translate-menu__title';
+    title.textContent = 'Machine translation';
+    panel.appendChild(title);
+    var local = isLocalUrl(location.href);
+    if (!local) languages.forEach(function (language) {
+      var link = document.createElement('a');
+      link.className = 'tlc-translate-menu__item';
+      link.textContent = language[1];
+      link.lang = language[0];
+      link.href = translationUrl(location.href, language[0]);
+      panel.appendChild(link);
     });
-    document.addEventListener('click', function () { closeMenu(); });
+    var note = document.createElement('p');
+    note.className = 'tlc-translate-menu__note';
+    note.textContent = local
+      ? 'Translation requires the public guide. Local preview pages cannot be translated.'
+      : 'Opens Google Translate, a third-party service. Translation is automatic and unreviewed.';
+    panel.appendChild(note);
+    function close(restoreFocus) {
+      panel.hidden = true;
+      button.setAttribute('aria-expanded', 'false');
+      if (restoreFocus) button.focus();
+    }
+    button.addEventListener('click', function () {
+      if (!panel.hidden) return close(false);
+      panel.hidden = false;
+      button.setAttribute('aria-expanded', 'true');
+      var rect = button.getBoundingClientRect();
+      panel.style.top = rect.bottom + 8 + 'px';
+      panel.style.right = Math.max(12, innerWidth - rect.right) + 'px';
+      var first = panel.querySelector('a');
+      if (first) first.focus();
+    });
+    document.addEventListener('click', function (e) {
+      if (!button.contains(e.target) && !panel.contains(e.target)) close(false);
+    });
     document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape') closeMenu();
+      if (e.key === 'Escape' && !panel.hidden) close(true);
     });
-
-    option.insertBefore(btn, option.firstChild);
+    document.addEventListener('focusin', function (e) {
+      if (!button.contains(e.target) && !panel.contains(e.target)) close(false);
+    });
+    window.addEventListener('resize', function () { close(false); });
+    header.appendChild(button);
+    document.body.appendChild(panel);
   }
-
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', inject);
-  } else {
-    inject();
-  }
-  // Re-inject after Material's instant-navigation swaps the DOM.
-  if (typeof document$ !== 'undefined' && document$ && document$.subscribe) {
-    document$.subscribe(function () { inject(); });
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', inject);
+  else inject();
 })();

@@ -1,5 +1,8 @@
 # Window Overview
 
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
 TLC+ uses a single maximized window with a custom dark title bar. Everything you need is visible at once — no hidden palettes, no floating dialogs except when deliberately opened. This page names each region of the window so the rest of the guide can refer to them precisely.
 
 ![Annotated view of the main window with a Grand Prix track](../assets/screenshots/02-main-gp.png){ class="tlc-shot" }
@@ -8,7 +11,7 @@ TLC+ uses a single maximized window with a custom dark title bar. Everything you
 
 The slim bar along the top edge replaces the native window frame. From left to right you will find:
 
-- **TRACK LAYOUT CREATOR +** — the app name, always visible.
+- **TRACK LAYOUT CREATOR +** — the app name; its visibility can be changed in Preferences.
 - **File / Edit / Theme / Help** — dropdown menus (details below).
 - **Check for Updates** — opens the release page after confirming internet use.
 - **— / ▢ / ✕** — minimize, maximize (double-clicking the bar also toggles it) and close. Closing via ✕ saves your preferences; the File → Quit entry does not.
@@ -84,3 +87,7 @@ Note that the *exported* TED header stores the 3D length — including every met
 TLC+ keeps dialogs to a minimum: the **Edit Point** precision editor, the **Preferences** module manager, the in-app **Controls** reference, **Credits**, and the isometric viewer. All of them are centred on screen and can be closed with their buttons or by destroying them like any normal window; the app itself keeps running underneath.
 
 ![The Sidebar Module Manager (Preferences) dialog](../assets/screenshots/07-preferences.png){ class="tlc-shot" }
+
+## Added in v1.3.0
+
+The sidebar also includes [Decorations](decorations.md), while Generators contains the [Track Tracer](generators-tab.md) for images and GPX/CSV. The elevation panel and title can be hidden. [Preferences](preferences.md) also offers experimental Classic light mode.

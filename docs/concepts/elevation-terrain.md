@@ -1,5 +1,8 @@
 # Elevation & Terrain
 
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
 TLC+ models elevation in three layers: a **real terrain heightmap** that follows the theme, **manual height nodes** that you sculpt, and **camber banking** that tilts the road across its width. The elevation graph at the bottom of the window is where all three become visible — and editable — at once.
 
 ![The elevation profile graph with a distance cursor planted](../assets/screenshots/06-elevation-cursor.png){ class="tlc-shot" }
@@ -57,7 +60,7 @@ Camber banking adds a vertical component of its own: the road tilts across its w
 
 ## Theme-specific elevation notes
 
-- Switching themes via the **Theme** menu reloads the heightmap and re-samples everything — your polygon stays, but a road that hugged Andalusian cliffs may suddenly float above (or sink into) Eifel Flat meadows. Re-check the profile after every theme switch.
+- Switching themes via the **Scenery** menu reloads the heightmap and re-samples everything — your polygon stays, but a road that hugged Andalusian cliffs may suddenly float above (or sink into) Eifel Flat meadows. Re-check the profile after every theme switch.
 - The elevation graph always reflects the *current* theme, including manual heights and their easing.
 - Isometric view (**File → Draw isometric view**) renders the same terrain data in 3D and is the quickest sanity check that your road hasn't tunnelled through a hillside.
 

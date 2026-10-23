@@ -1,5 +1,8 @@
 # Procedural Builder
 
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
 The Procedural Track Builder creates complete layouts from mathematical recipes — one button per archetype, a fresh roll of the dice every click. Generation is instant and entirely local: nodes are placed by geometric rules, radii assigned from each archetype's profile, the view recentres, and an undo snapshot means ++ctrl+z++ puts your previous track back exactly as it was.
 
 All five generators share the same contract: every node is created with zero height, *global* camber and circular curve mode (segments = 1), circuit mode is set appropriately for the style, and the result is a fully editable polygon — nothing about a generated track is locked or special.

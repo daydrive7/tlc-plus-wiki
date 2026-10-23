@@ -1,5 +1,8 @@
 # Themes & Road Types
 
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
+
 A **theme** in TLC+ is more than a colour scheme: it selects the real-world terrain heightmap, the contour rendering, *and* an entire table of GT6 road building blocks — start zones, sprint blocks, mid-track straights (normal and narrow), and the line types used for start and finish lines. Choosing a theme is therefore the very first decision of any project, because it determines what the exported TED physically drives on.
 
 ## The four themes
@@ -11,7 +14,7 @@ A **theme** in TLC+ is more than a colour scheme: it selects the real-world terr
 | **Andalusia** | 7 000 × 7 000 m, ±646 m | Rugged Spanish mountains; the most extreme elevation. |
 | **Eifel Flat** *(default)* | 12 000 × 12 000 m, ±166 m | Gentle Eifel relief — forgiving for first tracks. |
 
-Switch themes from the **Theme** menu in the title bar. The polygon is untouched, but the terrain beneath it changes, so always re-check the elevation profile after switching. Eifel Flat internally reuses Eifel's road data with a flattened heightmap — the two are siblings, not separate families.
+Switch terrain from the **Scenery** menu in the title bar. Confirming a different scenery clears placed decorations; the polygon stays but the terrain beneath it changes, so always re-check the elevation profile after switching. Eifel Flat internally reuses Eifel's road data with a flattened heightmap — the two are siblings, not separate families.
 
 ## What a theme provides
 
@@ -43,6 +46,6 @@ Every theme carries a table of road building blocks that the exporter assembles 
 
 ## Theme-specific quirks worth knowing
 
-- The Eifel theme's road table is shared with **Eifel Flat**, so a track that exports correctly on one transfers cleanly to the other — only the terrain changes.
+- The Eifel theme's road table is shared with **Eifel Flat**, but their terrain and decoration catalogs must still be checked independently. Export before switching scenery with decorations placed.
 - Andalusia's ±646 m range means the elevation graph's vertical scale can dwarf manual heights; zoom your attention to the numbers rather than the curve amplitude.
 - On any theme, the exporter deletes road segments shorter than 0.1 m regardless of settings — a guard against a division-by-zero crash on real PS3 hardware. Keep the canvas free of the short-feature warnings and this rule will never bite you.

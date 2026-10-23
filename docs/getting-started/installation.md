@@ -1,110 +1,90 @@
-# Installation
+# Download & install
 
-TLC+ is a portable Python application — there is no installer, no registry entries and no compilation step. You download one archive, run a launcher script, and you are done. This page walks you through the setup on each platform and explains what gets installed along the way.
+Download the **v1.3.0 release archive**, extract the complete folder, then run the launcher for your operating system. Keep `resources/`, `locales/` and the launchers beside `TrackLayoutCreatorPlus.py`.
 
-## System requirements
+[Download desktop v1.3.0 :material-download:](https://github.com/daydrive7/track-layout-creator-plus/releases/tag/v1.3.0){ .md-button .md-button--primary }
 
-| Requirement | Details |
-|---|---|
-| **Operating system** | Windows, macOS or Linux |
-| **Python** | 3.8 or newer (the launchers can install Python for you on Windows) |
-| **Pillow** | Image vectorization and the window icon on macOS/Linux |
-| **numpy** | Terrain heightmap sampling and geometry math |
-| **Tkinter** | The GUI toolkit — bundled with official Python installers on Windows and macOS; on most Linux distributions it is a separate package |
-| **Disk space** | ≈ 10 MB for the app and its bundled heightmap data |
+The release attachment is named **`Track.Layout.Creator.+.7z`**. Use the attached archive under **Assets**; GitHub's automatic “Source code” archives contain the repository, which does not include the complete desktop application.
 
-The application is fully offline after installation. The only network features are the optional **Check for Updates** button and the **Help → Guide** menu item, both of which ask before opening a browser.
+## Requirements
 
----
+| Component | Needed for |
+| --- | --- |
+| Windows, macOS or Linux | Desktop application |
+| Python 3 with Tkinter | Running the editor; the project README lists Python 3.8+ |
+| Pillow and NumPy | Image operations and terrain/geometry |
+| A writable extracted folder | Preferences, saves and exports |
+| An archive extractor supporting `.7z` | Extracting the release |
+
+Install a supported Python 3 version for your operating system. Check Tkinter with `python -m tkinter` (or `python3 -m tkinter`); it should open a small test window. The launchers detect Python and install missing libraries. **The v1.3.0 Windows launcher does not download or install Python.**
 
 ## Windows
 
-1. Download `TrackLayoutCreatorPlus_1.2.0.7z` from the [latest release](https://github.com/daydrive7/track-layout-creator-plus/releases) and extract it with 7-Zip, WinRAR or Windows 11's built-in archive support.
-2. Open the extracted `Track Layout Creator +` folder and double-click **`run.bat`**.
+1. Extract the `.7z` into a writable folder such as your Documents folder.
+2. Install Python if necessary, including Tkinter and the option to make Python available from a terminal.
+3. Open the extracted **Track Layout Creator +** folder and double-click **`run.bat`**.
+4. Allow the first dependency installation to finish. If the launcher fails, read its message before closing it.
 
-The launcher takes care of everything automatically:
-
-1. It looks for an existing Python 3 installation.
-2. If Python is missing, it downloads and installs **Python 3.11** for you.
-3. It installs `Pillow` and `numpy` if they are not present.
-4. It starts TLC+.
-
-On subsequent launches, step 1–3 are skipped and the app starts instantly. Windows may show a "Windows protected your PC" SmartScreen prompt the first time because the script is unsigned — click **More info → Run anyway** if you trust the source.
-
-!!! tip "Python from the Microsoft Store"
-    If you installed Python from the Microsoft Store, `run.bat` will still find it, but in rare cases the store version's alias shim can interfere. If the launcher cannot find Python, download the official build from [python.org](https://www.python.org/downloads/) instead and tick **"Add python.exe to PATH"** during setup.
-
----
+If it says Python is missing, check `python --version` or `py -3 --version` in a terminal. If Windows redirects you to the Store, check the Python installation and app execution aliases. See [launch troubleshooting](../troubleshooting.md#the-editor-will-not-start).
 
 ## macOS
 
-1. Extract the downloaded `.7z` archive (for example with [The Unarchiver](https://theunarchiver.com/) or `brew install p7zip`).
-2. In the `Track Layout Creator +` folder, **right-click `run.command` and choose Open** the first time, then confirm with *Open* in the dialog. This bypasses Gatekeeper, which does not recognise the unsigned script.
-3. On every later launch you can simply double-click `run.command`.
+1. Install Python 3 with Tkinter and extract the complete release.
+2. In Finder, open **`run.command`** using the system's Open command for a downloaded script you trust.
+3. Alternatively, open a terminal in the extracted application folder and run:
 
-The launcher verifies that Python 3 is available (from [python.org](https://www.python.org/downloads/macos/) or Homebrew's `brew install python`), installs `Pillow` and `numpy` if needed, and starts TLC+.
-
-If you prefer the Terminal, you can also start the app directly:
-
-```bash
-cd "/path/to/Track Layout Creator +"
+```sh
+chmod +x run.command
 ./run.command
-# or
-python3 TrackLayoutCreatorPlus.py
 ```
 
----
+If Tkinter is unavailable, use a Python installation that includes it. Dependency and operating-system support vary with your Python distribution.
 
 ## Linux
 
-Most distributions ship Tkinter separately from Python, so one extra package is usually needed. Install the set once with your package manager:
+Install Python and Tkinter through your distribution. For Debian/Ubuntu, for example:
 
-=== "Debian / Ubuntu"
+```sh
+sudo apt install python3 python3-tk python3-venv
+```
 
-    ```bash
-    sudo apt install python3 python3-tk python3-pil python3-numpy
-    ```
+From the extracted application folder:
 
-=== "Fedora"
-
-    ```bash
-    sudo dnf install python3 python3-tkinter python3-pillow python3-numpy
-    ```
-
-=== "Arch / Manjaro"
-
-    ```bash
-    sudo pacman -S python tk python-pillow python-numpy
-    ```
-
-Then make the launcher executable (only needed once) and run it:
-
-```bash
-cd "/path/to/Track Layout Creator +"
+```sh
 chmod +x run.sh
 ./run.sh
 ```
 
-Alternatively, install the Python dependencies with pip and start the app manually:
+If your distribution blocks installation into the system Python, use the isolated setup below instead of forcing a system-wide pip install.
 
-```bash
-pip install -r requirements.txt
-python3 TrackLayoutCreatorPlus.py
-```
+## Manual setup in a virtual environment
 
----
+Run these commands **inside the extracted application folder**.
 
-## Verifying the installation
+=== "Windows"
 
-Whichever platform you are on, a successful launch looks like this: a dark-themed window opens maximized with the title **TRACK LAYOUT CREATOR +** in the upper-left corner, the toolbar floats over an empty terrain canvas on the left, and the status card in the lower-right reads `Scene: Eifel Flat`. If you see that, everything — including the heightmap data — loaded correctly.
+    ```powershell
+    py -3 -m venv .venv
+    .venv\Scripts\python.exe -m pip install -r requirements.txt
+    .venv\Scripts\python.exe TrackLayoutCreatorPlus.py
+    ```
 
-![The TLC+ window immediately after a fresh start](../assets/screenshots/01-main-blank.png){ class="tlc-shot" }
+=== "macOS / Linux"
 
-!!! note "Where files are stored"
-    TLC+ keeps everything next to the program folder: track saves go to `savefiles/`, TED exports to `output/`, PostScript screenshots to `img/`, and your preferences in `config.json`. Nothing is written outside the application directory.
+    ```sh
+    python3 -m venv .venv
+    .venv/bin/python -m pip install -r requirements.txt
+    .venv/bin/python TrackLayoutCreatorPlus.py
+    ```
 
----
+## Confirm a successful launch
 
-## Updating
+The editor should show a canvas, toolbar, sidebar and track status. Open **Generators → Grand Prix (Fast & Flowing)** and check that a layout appears. Some modules and the elevation graph can be hidden in Preferences; their absence alone does not mean installation failed.
 
-TLC+ checks for new releases in the background a few seconds after startup (see [Preferences](../interface/preferences.md) to disable this), and you can always trigger a check manually with the **Check for Updates** button in the title bar. The check only compares version numbers and opens the release page in your browser — nothing is downloaded or installed automatically. To update, simply download the new `.7z` from the [releases page](https://github.com/daydrive7/track-layout-creator-plus/releases) and extract it over (or next to) your old copy; your tracks in `savefiles/` are plain data files and carry over unchanged.
+Editing works offline after dependencies are installed. Startup update reminders contact GitHub when enabled. Help → Guide opens the online wiki; optional translation also requires internet access.
+
+## Updating safely
+
+Back up your application folder, especially `savefiles/`, `output/`, `polygons/`, `img/`, `reference paths/` and `config.json`. Extract a new release into a **separate folder** and copy your personal files deliberately. Do not rely on extracting over an existing installation to preserve everything.
+
+The v1.3.0 update checker can open a release page; it does not install a release automatically. After updating, open a **copy** of a saved track and check its scenery, geometry and export before moving your main work. [Save-format limits →](../files/saving-loading.md)

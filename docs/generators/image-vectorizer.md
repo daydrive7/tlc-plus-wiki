@@ -1,4 +1,7 @@
-# Image Vectorizer
+# Trace an image
+
+!!! note "Screenshot version"
+    Images on this page show v1.2.0. Shared controls still apply; see [the v1.3.0 release overview](../releases.md) for the new tools.
 
 The Image Vectorizer turns a picture of a track into an editable polygon. Give it a track map — a scan of a paper sketch, a screenshot of a circuit map, an aerial photo — and it converts the ink into nodes with corner radii, ready for the usual editing tools. It lives on the [Generators tab](../interface/generators-tab.md), behind the **Trace Image** button.
 
@@ -57,3 +60,7 @@ A vectorized track is a *starting sketch*: radii default to 40 m everywhere, ele
 2. Re-radius the important corners (right-drag, or the Edit Point dialog for exact values).
 3. Fix any blinking warnings — merges, spacing, radius violations.
 4. Sculpt elevation, set start/pit logic, and export like any hand-built track.
+
+## GPS files use a separate action
+
+In v1.3.0 the image controls live under **Track Tracer**. Use **Trace Image** for a picture. **Trace GPX/CSV** and its 50–100% accuracy slider are separate and do not change image tracing. [GPS tracing →](gps-tracing.md)

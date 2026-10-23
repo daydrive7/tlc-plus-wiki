@@ -1,0 +1,4 @@
+{% extends "base.html" %}
+{% block announce %}
+  Desktop <strong>v1.3.0</strong> guide · <a href="{{ ('releases/' if config.use_directory_urls else 'releases.html') | url }}">What's new</a> · <a href="{{ ('known-limits/' if config.use_directory_urls else 'known-limits.html') | url }}">Save & export limits</a>
+{% endblock %}

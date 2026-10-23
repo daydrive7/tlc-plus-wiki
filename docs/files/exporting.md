@@ -1,54 +1,41 @@
-# Exporting
+# Export a track or image
 
-TLC+ produces three export flavours: the **`.ted`** track file that GT6 consumes, **PostScript** vector screenshots of the canvas and isometric view, and **`.pgn`** polygon data for lossless geometry exchange. Each is covered below, with the `.ted` pipeline explained in depth — it contains several deliberate GT6/PS3-specific behaviours worth knowing about.
+Export a **TED** for the final track, a **PGN** for raw polygon exchange, or a **screenshot** to show your work. Save a `.trk5` milestone before exporting.
 
-## Export to TED — File → Export to TED
+## Export to TED
 
-The flagship export writes a `.ted` file to `output/` (created if missing), named by timestamp like the project saves. You need at least **two control points — three in Circuit mode** — otherwise the export politely declines with a console message.
+Choose **File → Export to TED** and select a destination; the default folder is `output/`. You need at least **two control nodes for a stage** or **three for a circuit**.
 
-### What the pipeline does
+The exporter samples the road geometry, terrain/manual elevation and banking, generates road/checkpoint records, and writes supported decorations in the TED decoration table. Exported track length includes height (3D distance), so it can differ from the plan-view measurement.
 
-1. **Rounds the corners** — the same Euler/circular geometry you see on the canvas is resampled into the final road path.
-2. **Assembles the road** from the theme's building blocks: start blocks, then first/mid/final mid-road segments scaled by the **road length factor**, normalised to your track's length, and rotated by the pit offset on circuits. Segments shorter than **0.1 m are deleted** — a critical fix for a real division-by-zero crash on PS3 hardware.
-3. **Samples heights** — terrain (through the surface-smoothing blend) plus manual heights and their ramps, with camber's vertical contribution added according to the camber axis.
-4. **Spreads banking** — each corner's bank angle eases in and out across the adjoining road, never using more than half of the shorter neighbouring segment per side.
-5. **Places checkpoints** at every full **1000 m of 3D distance** (with a midpoint fallback when a precise 1000 m position isn't available). Point-to-point tracks stop placing checkpoints 1000 m before the finish.
-6. **Writes the 156-byte header** — identification, version, scenery, road width, **3D track length**, a PDI bit-packed timestamp, circuit flag, home straight length, elevation difference, corner count, start/finish line 3D positions and the offsets for every record table that follows.
+The implementation includes compatibility choices such as removing road fragments below 0.1 m and writing track-width fields as road width / 2. These are implementation details, not a guarantee that every layout or game setup will accept the output.
 
-### GT6-specific guarantees baked into every export
+### Check before exporting
 
-- **Track width values** (`m_trackwidth_a/b`) are written as **road width / 2** — this pins GT6's collision walls to the road you actually drew, instead of the default 20 m box that otherwise traps the car.
-- Road records carry the correct **vpos/vlen 3D distances**, matching how the official editor measures the ribbon that includes height.
-- The **decoration table** is written empty with its offsets reserved, keeping the file structurally identical to official ones.
+- Confirm scenery, Circuit/open-stage mode, road width and start/pit position.
+- Inspect intersections, short segments and tight corners; resolve canvas warnings where possible.
+- Review the elevation graph with the intended manual-height and smoothing controls.
+- Check decoration count, sides, variants and the active scenery.
+- Save geometry as `.trk5`, then export TED to a new filename.
 
-### After the export
+### Import and game compatibility
 
-The `.ted` is ready for the official **GT6 Track Path Editor** on PS3 — from there it can be shared and driven. If the editor refuses a file, the usual culprits are visible on TLC+'s canvas beforehand: the short-feature warning triangles (features < 14 m) and radius/border warnings. Clean those up and export again.
+TED import is not a complete project restore: it reconstructs nodes and resets editable heights/banking. Keep your native save and settings notes. [Save limits →](saving-loading.md)
 
-!!! note "Plan-view vs 3D length"
-    The status card's *Length* is plan-view; the TED header stores 3D length. A 4 000 m circuit with 60 m of cumulative climbing exports as roughly 4 060 m. Both numbers are correct — they just measure different things.
+TLC+ exports files; it does **not** upload them to a PS3, restore GT6 online services or provide an in-game installation mechanism. Using a TED requires a separate workflow compatible with your own GT6 environment. No GT7 or other-game export is provided.
 
-## Export to PostScript — File → Export to PostScript
+## Main-canvas screenshot
 
-Captures the canvas as **colour PostScript** to `img/screen.ps` inside the application folder (folder created on demand). PostScript is a vector format: infinitely scalable, print-ready, and the native output of Tk's canvas — which also means it is what the toolbar's **screenshot** button produces. For a social-media-friendly raster image, simply screenshot the window with your OS tools instead; for a crisp poster or print, the PostScript file is the better source.
+Click the toolbar's screenshot button, or **File → Export to PostScript**. Despite that menu label, **v1.3.0 normally saves a PNG** using a Save screenshot dialog. The default is a timestamped file under `img/`.
 
-The isometric viewer has its own PostScript export — press ++p++ inside it — written to `resources/img/iso.ps`.
+If screen capture fails, the app attempts a `.ps` PostScript fallback and reports the saved path. Keep the canvas visible and unobstructed for pixel capture. An image does not contain editable track data.
 
-## Export polygon — File → Export polygon
+## Isometric export
 
-Writes a `.pgn` CSV (default folder `polygons/`), one line per node:
+Open **File → Draw isometric view**. Its image/export controls are separate from the main-canvas screenshot. The viewer's ++p++ action exports PostScript; use the reported destination and a compatible viewer/converter.
 
-```text
-x,y,z,radius,camber,segments,width
-```
+## Export polygon
 
-This is the lossless geometry interchange format: reload it later with **File → Import polygon**, post-process it with any script, or archive a layout's skeleton without its UI settings. Note that it carries the *polygon* — road width, camber rules and all other sidebar settings are not part of a `.pgn` (keep the `.trk5` for those).
+**File → Export polygon** writes `.pgn`, a CSV-style point list. It carries per-node coordinates, radius, camber and curve information for geometry exchange. Global track settings and decorations are not included. Keep `.trk5` and `.ted` as appropriate rather than treating PGN as a complete project backup.
 
-## Choosing the right export
-
-| Goal | Use |
-|---|---|
-| Drive the track in GT6 | **Export to TED** |
-| Print or scale a 2D drawing | **Export to PostScript** |
-| 3D preview image | Isometric viewer → ++p++ (PostScript) or an OS screenshot |
-| Save/transfer editable geometry | **Export polygon** (`.pgn`) or better, **Save track** (`.trk5`) |
+For missing output, launch the editor from a writable extracted folder and read the console/error message. [Troubleshooting →](../troubleshooting.md#an-export-fails-or-looks-wrong)
